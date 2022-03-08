@@ -1,0 +1,155 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label *ngIf="countryIsSpain()">Nombre</mat-label>
+    <mat-label *ngIf="countryIsUSA()">Name</mat-label>
+    <input
+      matInput
+      type="text"
+      id="name"
+      formControlName="name"
+      minlength="3"
+      maxlength="254"
+      placeholder="Ex. Paco"
+    />
+  </mat-form-field>
+  <app-evaluate-input
+    [dirty]="form.get('name')?.dirty"
+    [valid]="form.get('name')?.valid"
+    [errorMessage]="
+      getError('name', form.get('name')?.errors, stringCountrySelected)
+    "
+  ></app-evaluate-input>
+  <mat-divider></mat-divider>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label *ngIf="countryIsSpain()">Apellido</mat-label>
+    <mat-label *ngIf="countryIsUSA()">Surname</mat-label>
+    <input
+      matInput
+      type="text"
+      id="surname"
+      formControlName="surname"
+      minlength="3"
+      maxlength="254"
+      placeholder="Ex. Jimenez Gómez"
+    />
+  </mat-form-field>
+  <app-evaluate-input
+    [dirty]="form.get('surname')?.dirty"
+    [valid]="form.get('surname')?.valid"
+    [errorMessage]="
+      getError('surname', form.get('surname')?.errors, stringCountrySelected)
+    "
+  ></app-evaluate-input>
+  <mat-divider></mat-divider>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label *ngIf="countryIsSpain()">Edad</mat-label>
+    <mat-label *ngIf="countryIsUSA()">Age</mat-label>
+    <input
+      matInput
+      type="number"
+      id="age"
+      formControlName="age"
+      min="12"
+      max="150"
+      placeholder="Ex. 24"
+    />
+  </mat-form-field>
+  <app-evaluate-input
+    [dirty]="form.get('age')?.dirty"
+    [valid]="form.get('age')?.valid"
+    [errorMessage]="
+      getError('age', form.get('age')?.errors, stringCountrySelected)
+    "
+  ></app-evaluate-input>
+  <mat-divider></mat-divider>
+
+  <mat-label *ngIf="countryIsSpain()">Ciudad</mat-label>
+  <mat-label *ngIf="countryIsUSA()">Country</mat-label>
+  <mat-radio-group aria-labelledby="country" class="example-radio-group">
+    <mat-radio-button
+      class="example-radio-button"
+      (input)="setCountryToESP()"
+      value="ESP"
+      checked
+    >
+      ESP
+    </mat-radio-button>
+
+    <mat-radio-button
+      class="example-radio-button"
+      (input)="setCountryToUSA()"
+      value="USA"
+    >
+      USA
+    </mat-radio-button>
+  </mat-radio-group>
+
+  <mat-divider></mat-divider>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label *ngIf="countryIsSpain()">Código postal</mat-label>
+    <mat-label *ngIf="countryIsUSA()">Zip Code</mat-label>
+    <input
+      matInput
+      type="text"
+      id="zip"
+      formControlName="zip"
+      placeholder="Ex. XXXXX"
+    />
+  </mat-form-field>
+  <app-evaluate-input
+    [dirty]="form.get('zip')?.dirty"
+    [valid]="form.get('zip')?.valid"
+    [errorMessage]="
+      getError('zip', form.get('zip')?.errors, stringCountrySelected)
+    "
+  ></app-evaluate-input>
+  <mat-divider></mat-divider>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label *ngIf="countryIsSpain()">Teléfono</mat-label>
+    <mat-label *ngIf="countryIsUSA()">Phone</mat-label>
+    <input
+      matInput
+      type="text"
+      id="phone"
+      formControlName="phone"
+      placeholder="Ex. 654258456"
+    />
+  </mat-form-field>
+  <app-evaluate-input
+    [dirty]="form.get('phone')?.dirty"
+    [valid]="form.get('phone')?.valid"
+    [errorMessage]="
+      getError('phone', form.get('phone')?.errors, stringCountrySelected)
+    "
+  ></app-evaluate-input>
+  <mat-divider></mat-divider>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Web</mat-label>
+    <input
+      matInput
+      type="text"
+      id="web"
+      formControlName="web"
+      placeholder="Ex. example.com"
+    />
+  </mat-form-field>
+  <app-evaluate-input
+    [dirty]="form.get('web')?.dirty"
+    [valid]="form.get('web')?.valid"
+    [errorMessage]="
+      getError('web', form.get('web')?.errors, stringCountrySelected)
+    "
+  ></app-evaluate-input>
+  <mat-divider></mat-divider>
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="!form.valid"
+  >
+    Enviar
+  </button>
+  <button mat-raised-button type="reset" [disabled]="!form.touched">
+    Reiniciar
+  </button>
+</form>

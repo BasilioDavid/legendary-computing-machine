@@ -1,0 +1,11 @@
+@import '~animate.css/animate.min.css';
+
+.ok {
+  color: green;
+}
+
+
+
+.fail {
+  color: red;
+}

@@ -1,0 +1,8 @@
+<ng-template [ngIf]="dirty">
+  <i class="far fa-check-circle ok" *ngIf="valid; else notValid"></i>
+</ng-template>
+<ng-template #notValid class="animate__animated animate__fadeIn">
+  <i class="far fa-times-circle fail"></i>
+  <a class="fail">{{ errorMessage }}</a>
+</ng-template>
+

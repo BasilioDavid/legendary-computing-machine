@@ -1,0 +1,65 @@
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: rgb(68, 68, 180);
+}
+fieldset {
+  width: max-content;
+  border: 1px solid white;
+  background-color: white;
+  box-shadow: black 3px 3px 5px;
+  border-radius: 5px;
+}
+form {
+  line-height: 25px;
+}
+table {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+input {
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+.title {
+  color: rgb(68, 68, 180);
+  text-align: center;
+  text-shadow: rgb(99, 99, 255) 1px 0px 1px;
+}
+.entry {
+  width: 150px;
+}
+.success {
+  border: 2px solid green;
+}
+.success:focus-visible {
+  outline: 2px solid green;
+}
+.error {
+  border: 2px solid red;
+}
+.error:focus-visible {
+  outline: 2px solid red;
+}
+.lbl {
+  text-align: right;
+}
+.tdButtons,
+.shipDate {
+  text-align: center;
+}
+.errorMsg {
+  font-size: 10px;
+}
+.butt {
+  background-color: rgb(68, 68, 180);
+  color: white;
+  border: 0px solid;
+  width: 100px;
+  margin-top: 20px;
+  line-height: 25px;
+  box-shadow: black 1px 1px 1px;
+}
+.butt:hover {
+  cursor: pointer;
+  background-color: rgb(52, 52, 139);
+}
