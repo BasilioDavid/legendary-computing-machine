@@ -1,13 +1,15 @@
 pipeline {
-	agent { label 'linux' }
-	options {
-		buildDiscarder(logRotator(numToKeepStr: '5'))
-	}
-	stages {
-		stage("scan") {
-			withSonarQubeEnv(installationName: 'eoa') {
-				sh "./sonar-scanner"	
-			}
-		}
-	}
+  agent { label 'linux' }
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '5'))
+  }
+  stages {
+    stage('Scan') {
+      steps {
+        withSonarQubeEnv(installationName: 'eoa') { 
+					sh '${scannerHome}/bin/sonar-scanner'
+        }
+      }
+    }
+  }
 }
